@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《我的经典常谈》阅读手抄报</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --paper: #f4f1e8;
+            --ink: #2c2c2c;
+            --cinnabar: #b22222;
+            --bamboo: #8b7355;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background: #d4d0c8;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .font-calligraphy {
+            font-family: 'Ma Shan Zheng', cursive;
+        }
+
+        /* 手抄报主体 - A3比例 */
+        .manuscript {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--paper);
+            box-shadow: 
+                0 0 0 1px #999,
+                0 0 0 8px #fff,
+                0 0 0 9px #ccc,
+                0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 竖排文字支持 */
+        .writing-vertical {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        /* 朱批风格 */
+        .zhu-pi {
+            color: var(--cinnabar);
+            font-weight: 600;
+        }
+
+        /* 批注框 */
+        .note-box {
+            border: 1px dashed var(--bamboo);
+            background: rgba(139, 115, 85, 0.05);
+            position: relative;
+        }
+
+        .note-box::before {
+            content: "批注";
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background: var(--paper);
+            padding: 0 5px;
+            font-size: 0.75rem;
+            color: var(--bamboo);
+        }
+
+        /* 引用块 */
+        .quote-block {
+            border-left: 3px solid var(--cinnabar);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* 网格背景 */
+        .grid-bg {
+            background-image: 
+                linear-gradient(rgba(139, 115, 85, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 115, 85, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* 印章效果 */
+        .seal {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border: 3px solid var(--cinnabar);
+            color: var(--cinnabar);
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 1.5rem;
+            transform: rotate(-5deg);
+            opacity: 0.8;
+        }
+
+        /* 表格样式 */
+        .bamboo-table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .bamboo-table th,
+        .bamboo-table td {
+            border: 1px solid var(--bamboo);
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        .bamboo-table th {
+            background: rgba(139, 115, 85, 0.15);
+            font-weight: 600;
+        }
+
+        /* 折叠角效果 */
+        .corner-fold {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(225deg, #e8e4d5 50%, transparent 50%);
+            box-shadow: -2px 2px 2px rgba(0,0,0,0.1);
+        }
+
+        @media print {
+            body { background: white; }
+            .manuscript { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 手抄报主体 -->
+    <div class="manuscript grid-bg">
+        <div class="corner-fold"></div>
+        
+        <!-- 报头 -->
+        <header class="p-8 border-b-2 border-stone-400 relative">
+            <div class="flex justify-between items-start">
+                <div class="w-2/3">
+                    <h1 class="font-calligraphy text-5xl text-stone-800 mb-2">我的经典常谈</h1>
+                    <p class="text-stone-500 text-sm tracking-widest">朱自清著 · 阅读手抄报 · 经史子集入门</p>
+                </div>
+                <div class="seal">已阅</div>
+            </div>
+            
+            <!-- 个人阅读信息 -->
+            <div class="mt-6 flex gap-8 text-sm text-stone-600 border-t border-stone-300 pt-4">
+                <div><span class="font-semibold">阅读者：</span>王麒帆</div>
+                <div><span class="font-semibold">阅读时间：</span>寒假</div>
+                <div><span class="font-semibold">喜欢的章节：</span>全部</div>
+            </div>
+        </header>
+
+        <!-- 主体内容区 -->
+        <main class="p-8 grid grid-cols-12 gap-6">
+
+            <!-- 左侧栏：全书概览 + 核心笔记 -->
+            <div class="col-span-4 space-y-6">
+                
+                <!-- 全书档案 -->
+                <section class="bg-white/60 p-4 rounded border border-stone-300">
+                    <h2 class="font-calligraphy text-2xl text-stone-800 mb-3 border-b border-stone-300 pb-2">全书档案</h2>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-stone-500">成书时间</span>
+                            <span>1942年（抗战时期）</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-stone-500">章节数量</span>
+                            <span>13章</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-stone-500">分类体系</span>
+                            <span>经史子集 + 小学</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-stone-500">写作目的</span>
+                            <span>普及经典训练</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 十三章速查表 -->
+                <section>
+                    <h3 class="font-bold text-stone-700 mb-3 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-red-700 rounded-full"></span>
+                        十三章脉络
+                    </h3>
+                    <table class="bamboo-table text-xs">
+                        <thead>
+                            <tr>
+                                <th>章</th>
+                                <th>内容</th>
+                                <th>部类</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-stone-700">
+                            <tr><td>1</td><td>说文解字</td><td>小学</td></tr>
+                            <tr><td>2</td><td>周易</td><td>经</td></tr>
+                            <tr><td>3</td><td>尚书</td><td>经</td></tr>
+                            <tr><td>4</td><td>诗经</td><td>经</td></tr>
+                            <tr><td>5</td><td>三礼</td><td>经</td></tr>
+                            <tr><td>6</td><td>春秋三传</td><td>经</td></tr>
+                            <tr><td>7</td><td>四书</td><td>经</td></tr>
+                            <tr><td>8</td><td>战国策</td><td>史</td></tr>
+                            <tr><td>9</td><td>史记汉书</td><td>史</td></tr>
+                            <tr><td>10</td><td>诸子</td><td>子</td></tr>
+                            <tr><td>11</td><td>辞赋</td><td>集</td></tr>
+                            <tr><td>12</td><td>诗</td><td>集</td></tr>
+                            <tr><td>13</td><td>文</td><td>集</td></tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- 核心概念笔记 -->
+                <section class="note-box p-4 rounded">
+                    <h3 class="font-bold text-stone-700 mb-3">核心概念笔记</h3>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <span class="zhu-pi">六书：</span>
+                            象形、指事、会意、形声、转注、假借
+                        </div>
+                        <div>
+                            <span class="zhu-pi">五经：</span>
+                            诗、书、礼、易、春秋
+                        </div>
+                        <div>
+                            <span class="zhu-pi">四书：</span>
+                            大学、中庸、论语、孟子
+                        </div>
+                        <div>
+                            <span class="zhu-pi">春秋三传：</span>
+                            左传、公羊传、穀梁传
+                        </div>
+                        <div>
+                            <span class="zhu-pi">三礼：</span>
+                            周礼、仪礼、礼记
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 阅读方法批注 -->
+                <section class="bg-stone-100 p-4 rounded border-l-4 border-stone-400">
+                    <h4 class="font-bold text-stone-600 mb-2 text-sm">朱自清阅读法</h4>
+                    <p class="text-xs text-stone-500 leading-relaxed">
+                        "经典训练的价值不在实用，而在文化。"阅读时应关注典籍的<span class="zhu-pi">演变过程</span>而非死记硬背，理解其历史背景与思想脉络。
+                    </p>
+                </section>
+            </div>
+
+            <!-- 中间栏：金句摘抄 + 章节精读 -->
+            <div class="col-span-5 space-y-6">
+                
+                <!-- 金句摘抄区 -->
+                <section>
+                    <h2 class="font-calligraphy text-2xl text-stone-800 mb-4 flex items-center gap-2">
+                        <span class="text-3xl">"</span>
+                        金句摘抄
+                    </h2>
+                    
+                    <div class="space-y-4">
+                        <div class="quote-block">
+                            <p class="text-stone-700 text-sm leading-relaxed mb-2">
+                                诗的源头是歌谣。上古时候，没有文字，只有唱的歌谣，没有写的诗。
+                            </p>
+                            <div class="text-xs text-stone-400 text-right">——《诗经第四》</div>
+                        </div>
+
+                        <div class="quote-block">
+                            <p class="text-stone-700 text-sm leading-relaxed mb-2">
+                                文字可以增进人的能力，也可以增进人的巧诈。仓颉泄漏了天机，却将人教坏了。
+                            </p>
+                            <div class="text-xs text-stone-400 text-right">——《说文解字第一》</div>
+                        </div>
+
+                        <div class="quote-block">
+                            <p class="text-stone-700 text-sm leading-relaxed mb-2">
+                                战国时代，游说之风大盛，游士们不但自己游说，也教别人游说。
+                            </p>
+                            <div class="text-xs text-stone-400 text-right">——《战国策第八》</div>
+                        </div>
+
+                        <div class="quote-block">
+                            <p class="text-stone-700 text-sm leading-relaxed mb-2">
+                                司马迁感慨多，微情妙旨，往往在文字蹊径之外，班固则就史论史，客观描述。
+                            </p>
+                            <div class="text-xs text-stone-400 text-right">——《史记汉书第九》</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 章节精读卡片 -->
+                <section>
+                    <h3 class="font-bold text-stone-700 mb-3 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-blue-800 rounded-full"></span>
+                        精读章节：___________（请填写）
+                    </h3>
+                    <div class="bg-white/80 p-4 rounded border border-stone-200 min-h-[200px]">
+                        <div class="text-center text-stone-400 text-sm mt-8">
+                            [在此记录该章核心观点、历史背景、个人理解]
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 知识关联图 -->
+                <section>
+                    <h3 class="font-bold text-stone-700 mb-3">知识关联</h3>
+                    <div class="bg-stone-50 p-4 rounded text-sm space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="px-2 py-1 bg-red-100 text-red-800 rounded text-xs">经</span>
+                            <span class="text-stone-400">→</span>
+                            <span class="text-stone-600">儒家核心，科举基础</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">史</span>
+                            <span class="text-stone-400">→</span>
+                            <span class="text-stone-600">史料来源，叙事传统</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">子</span>
+                            <span class="text-stone-400">→</span>
+                            <span class="text-stone-600">思想争鸣，百家之源</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded text-xs">集</span>
+                            <span class="text-stone-400">→</span>
+                            <span class="text-stone-600">文学流变，审美演进</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 右侧栏：阅读感悟 + 思考 -->
+            <div class="col-span-3 space-y-6">
+                
+                <!-- 阅读感悟主体 -->
+                <section class="bg-white/80 p-5 rounded border-2 border-stone-300 h-full">
+                    <h2 class="font-calligraphy text-2xl text-stone-800 mb-4 text-center">阅读感悟</h2>
+                    
+                    <div class="space-y-4 text-sm text-stone-700 leading-relaxed">
+                        <p>
+                            读完《经典常谈》，我最大的收获是<span class="zhu-pi">打破了经典的神秘感</span>。朱自清先生用平实的语言，将《说文解字》《诗经》《史记》这些"高不可攀"的典籍，还原为特定历史背景下的产物。
+                        </p>
+
+                        <p>
+                            以前总觉得经典是僵死的文字，现在明白它们是<span class="font-semibold">活着的传统</span>。比如《诗经》本是民间歌谣，经过儒家阐释才成为"经"；《周易》从卜筮之书升华为哲学经典，体现了思想的演进。
+                        </p>
+
+                        <p>
+                            书中对<span class="zhu-pi">司马迁与班固的对比</span>让我印象深刻：一个"发愤著书"，充满个人情感；一个"奉旨修史"，追求客观公正。两种史学精神，影响中国史书写作两千年。
+                        </p>
+
+                        <div class="mt-6 pt-4 border-t border-stone-300">
+                            <h4 class="font-bold text-stone-600 mb-2">我的思考</h4>
+                            <p class="text-stone-500 italic">
+                                经典训练的价值不在实用，而在文化。在信息爆炸的今天，我们更需要通过经典建立文化的"锚点"，在快速变化的时代保持精神的定力。
+                            </p>
+                        </div>
+
+                        <div class="mt-4 p-3 bg-stone-50 rounded text-xs text-stone-500">
+                            <span class="font-semibold">联系现实：</span>
+                            朱自清在抗战最艰难时写这本书，是要保存文化火种。今天的我们读经典，也是为了在碎片化阅读中，建立系统性的知识结构。
+                        </div>
+                    </div>
+
+                    <!-- 手写签名区 -->
+                    <div class="mt-8 pt-4 border-t border-dashed border-stone-300 text-center">
+                        <div class="text-stone-400 text-xs mb-2">阅读者签名</div>
+                        <div class="h-12 border-b border-stone-300"></div>
+                        <div class="mt-2 text-stone-400 text-xs">日期：___________</div>
+                    </div>
+                </section>
+
+                <!-- 延伸阅读建议 -->
+                <section class="text-xs text-stone-500">
+                    <h4 class="font-bold text-stone-600 mb-2">延伸阅读建议</h4>
+                    <ul class="space-y-1 list-disc list-inside">
+                        <li>《说文解字》许慎（选读部首）</li>
+                        <li>《诗经选》余冠英译注</li>
+                        <li>《史记》司马迁（读列传）</li>
+                        <li>《论语译注》杨伯峻</li>
+                    </ul>
+                </section>
+            </div>
+
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="p-4 border-t border-stone-300 text-center text-xs text-stone-400">
+            <p>手抄报制作完成 | 经典常谈 · 常谈常新</p>
+        </footer>
+    </div>
+
+    <!-- 打印提示 -->
+    // <div class="max-w-[1200px] mx-auto mt-4 text-center text-sm text-stone-500 no-print">
+    //     <p>提示：可直接打印本页（建议A3纸张），或手写誊抄至手抄报纸</p>
+    //     <button onclick="window.print()" class="mt-2 px-4 py-2 bg-stone-700 text-white rounded hover:bg-stone-600">
+    //         打印手抄报
+    //     </button>
+    // </div>
+
+</body>
+</html>
